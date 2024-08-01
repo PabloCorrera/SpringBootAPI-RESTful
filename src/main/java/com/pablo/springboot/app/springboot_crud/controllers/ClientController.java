@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pablo.springboot.app.springboot_crud.entities.Client;
+import com.pablo.springboot.app.springboot_crud.entities.Order;
 import com.pablo.springboot.app.springboot_crud.services.ClientService;
 import org.springframework.web.bind.annotation.PutMapping;
 

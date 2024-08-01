@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pablo.springboot.app.springboot_crud.entities.Client;
+import com.pablo.springboot.app.springboot_crud.entities.Order;
 import com.pablo.springboot.app.springboot_crud.repositories.ClientRepository;
 
 @Service
@@ -16,6 +17,9 @@ public class ClientServiceImpl implements ClientService{
 
     @Autowired
     private ClientRepository repository;
+
+    @Autowired
+    private OrderService orderService;
 
     @Transactional(readOnly = true)
     @Override
@@ -55,6 +59,9 @@ public class ClientServiceImpl implements ClientService{
     public Optional<Client> delete(Long id) {
         Optional<Client> optionalClient = repository.findById(id);
         optionalClient.ifPresent(c -> {
+            
+            List<Order> deletedOrders = orderService.deleteByClientId(id);
+            System.out.println(deletedOrders);
             repository.delete(c);
         });
         return optionalClient;

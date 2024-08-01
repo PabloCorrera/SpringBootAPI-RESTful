@@ -26,7 +26,6 @@ public class SpringbootCrudApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		oneToMany();
 	}
 
 	public void oneToMany(){

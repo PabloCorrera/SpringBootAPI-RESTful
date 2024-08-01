@@ -16,4 +16,6 @@ public interface OrderService {
     Optional<Order> updateOrder(Long id, Order order);
 
     Optional<Order> delete(Long id);
+
+    List<Order> deleteByClientId(Long id);
 }

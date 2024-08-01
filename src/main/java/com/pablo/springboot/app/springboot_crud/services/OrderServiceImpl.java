@@ -1,5 +1,7 @@
 package com.pablo.springboot.app.springboot_crud.services;
 
+import java.lang.classfile.ClassFile.Option;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -69,6 +71,19 @@ public class OrderServiceImpl implements OrderService{
             repository.delete(c);
         });
         return optionalOrder;
+        
+    }
+
+    @Transactional
+    @Override
+    public List<Order> deleteByClientId(Long id) {
+        List<Order> ordersWithId = new ArrayList<>();
+        ordersWithId = repository.findAllByClientId(id);
+        if(!ordersWithId.isEmpty()){
+            repository.deleteAll(ordersWithId);
+        }
+        
+        return ordersWithId;
         
     }
     

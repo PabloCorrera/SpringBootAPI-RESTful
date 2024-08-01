@@ -24,7 +24,7 @@ public class Client {
     private String name;
     private String lastName;
 
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "client")
     private List<Order> orders;
     
     public Client() {
